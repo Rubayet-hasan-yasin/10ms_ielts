@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { Geist, Geist_Mono } from "next/font/google";
+import { notFound } from "next/navigation";
 
 
 
@@ -23,11 +24,16 @@ export default async function LocaleLayout({
   params: Params;
 }) {
   const { locale } = await params;
+  const availableLocales = ['en', 'bn'];
+
+  if (!availableLocales.includes(locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar currentLang={locale}/>
+        <Navbar currentLang={locale} />
         <main>{children}</main>
       </body>
     </html>

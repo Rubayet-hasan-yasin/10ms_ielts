@@ -5,10 +5,6 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import {
-  FaInfoCircle,
-  FaBriefcase,
-  FaPhoneAlt,
-  FaGlobe,
   FaSignInAlt,
   FaBars,
   FaTimes,
@@ -20,7 +16,7 @@ const Navbar = ({ currentLang }: { currentLang: string }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const currentLocale = useMemo(() => pathname.split('/')[1] || 'en', [pathname]);
-  const availableLocales = ['en', 'bn'];
+ 
 
   const handleLocaleChange = (newLocale: string) => {
     if (newLocale === currentLocale) return;
