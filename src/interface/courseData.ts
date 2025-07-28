@@ -13,10 +13,16 @@ export interface ChecklistItem {
   text: string;
 }
 
+export interface cta_text {
+  name: string;
+  value: string;
+}
+
 export interface CourseData {
   code: number;
   data: {
     slug: string;
+    cta_text: cta_text;
     id: number;
     title: string;
     description: string;

@@ -24,10 +24,10 @@ export default async function IELTS({
     const { locale } = await params;
     const courseData = await getCourseData(locale);
 
-    console.log(courseData);
+    // console.log(courseData);
     
 
-    const { title, description, media, checklist } = courseData.data;
+    const { cta_text, media, checklist } = courseData.data;
 
     const thumbnailImage = media.find(item => item.name === 'thumbnail')?.resource_value || '';
 
@@ -75,7 +75,7 @@ export default async function IELTS({
 
             {/* Right Sticky Section */}
             <div className="w-full lg:w-1/3">
-                <RightCardSection media={media}/>
+                <RightCardSection media={media} cta_text={cta_text} checklist={checklist}/>
             </div>
         </div>
     </div>);
